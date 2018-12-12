@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
-		Webpage
+		Indio Demo Request
 	</title>
 	<link rel="stylesheet" href="dribble_styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
@@ -11,16 +11,18 @@
 </head>
 <body>
 	<div class="top-container">
-		<div class="row1">
+		<div class="row1 clearfix">
 			<div class="row1-col1-logo">
 				<img src="images/logo.svg" class="logo-img">
 			</div>
 			<div class="row1-col2-nav-bar">
-				<a href="#">HOME</a>
-				<a href="#">HOW IT WORKS</a>
-				<a href="#">ABOUT US</a>
-				<a href="#">BLOG</a>
-				<a href="#" class="button-bg">GET STARTED</a>
+				<ul>
+					<li> <a href="#">HOME</a> </li>
+					<li> <a href="#">HOW IT WORKS</a> </li>
+					<li> <a href="#">ABOUT US</a> </li>
+					<li> <a href="#">BLOG</a> </li>
+					<li> <a href="#" class="button-bg">GET STARTED</a> </li>	
+				</ul>
 			</div>
 		</div>
 
@@ -28,7 +30,9 @@
 			<h1>Request a Demo of Indio</h1>
 		</div>
 
-		<div class="row3">
+		<hr class="hr-line">
+
+		<div class="row3 clearfix">
 			<div class="row3-col1">
 				<img src="images/laptop.svg">
 				<p class="custom-font"> <span class="dark-aqua-color">Easy to use:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan. Etiam eget varius ex, ac aliquet dolor.
@@ -41,16 +45,69 @@
 			<div class="row3-col2">
 				<div class="contact-container">
 					Sign up below to request a demo or call us at
-					<div class="contact-number button-bg">(415)200-1404</div>
+					<div>
+						<a href="#" class="contact-number">(415)200-1404</a>
+					</div>
 				</div>
-				<form>
-					First Name:<span class="dark-aqua-color">*</span>
-					<input name="firstname" type="text">
-					Last Name:<span class="dark-aqua-color">*</span>
-					<input name="firstname" type="text">
+
+				<form class="clearfix">
+					<div class="form-col1">
+						First Name:<span class="dark-aqua-color">*</span>
+						<input name="firstname" type="text" placeholder="First Name">
+					</div>
+					<div class="form-col2">
+						Last Name:<span class="dark-aqua-color">*</span>
+						<input name="lastname" type="text" placeholder="Last Name">
+					</div>
+					<div>
+						Email Address:<span class="dark-aqua-color">*</span>
+						<input type="email" name="emailaddr" placeholder="email@domain.com">
+					</div>
+					<div class="form-col1">
+						Password:<span class="dark-aqua-color">*</span>
+						<input type="password" name="psw" placeholder="Password">
+					</div>
+					<div class="form-col2">
+						Confirm Password:<span class="dark-aqua-color">*</span>
+						<input type="password" name="confirmpsw" placeholder="Confirm Password">
+					</div>
+
+					<div class="form-col1">
+						State:<span class="dark-aqua-color">*</span>
+						<select name="states">
+							<option value="default">Select State</option>
+							<option value="mh">Maharashtra</option>
+							<option value="gj">Gujarat</option>
+							<option value="ap">Andhra Pradesh</option>
+						</select>
+					</div>
+
+					<div class="form-col2">
+						Date of Birth:<span class="dark-aqua-color">*</span> (dd-mm-yyyy)
+						<input type="date" name="dob">
+					</div>		
+
+					<div class="address-field">
+						Address:<span class="dark-aqua-color">*</span>
+						<textarea name="message" rows="3" cols="72" placeholder="Please enter your address here"></textarea>
+					</div>
+
+					<div class="buttons-container">
+						<input type="submit" value="REQUEST DEMO" class="button-bg submit-button">	
+						<!-- <input type="reset" value="Reset" class="reset-button"> -->					
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
+	<footer class="footer-container">
+			<img src="images/logo.svg" class="logo-img">
+			<nav class="footer-nav-bar">
+				<a href="#">Terms of Service</a> 
+				 <a href="#">Privacy Policy</a> 
+			</nav>&copy;2018 Indio Technologies, Inc (415)200-1404
+		
+	</footer>
 </body>
 </html>
