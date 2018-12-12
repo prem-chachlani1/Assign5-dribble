@@ -1,27 +1,61 @@
 * {
 	box-sizing: border-box;
+	border-radius: 5px;
+	border-color: lightgrey;
+}
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 body {
 	font-size: 100%;
 	/* sans-serif has better readability on computer */
-	font-family: Arial, Helvetica, sans-serif;
+	/* font-family: Arial, Helvetica, sans-serif; */
+	font-family: 'Noto Sans', sans-serif;
 	font-style: normal;
-}
-
-.top-container {
 	width: 80%;
 	margin: auto;
 }
-.top-container a {
+div.row1-col2-nav-bar li {
+	list-style: none;
+	display: inline;
+}
+
+a {
 	text-decoration: none; 
+	color: black;
+}
+
+.footer-container {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.footer-container .logo-img {
+	width: 110px;
+	margin-right: 100px;
+}
+.footer-nav-bar {
+	display: inline;
+}
+.footer-nav-bar a {
+	margin-right: 50px;
+}
+
+
+.inline-el {
+	display: inline;
+}
+.inline-block-el {
+	display: inline-block;
 }
 /* img {
 	max-width:100%; images can grow till their original size only
 	height:auto;
 } */
-
 
 .dark-aqua-color {
 	color: #46D3C6; 
@@ -40,21 +74,21 @@ body {
 	font-weight: bold;
 }
 .row1-col1-logo {
-	width: 30%;
 	float: left;
+	margin-right: 100px;
 }
 .logo-img {
 	width: 110px;
 	height: auto;
-	display: block;
-	margin: 25px auto 15px 0px;
+	margin: 25px auto 0px 0px;
 
 }
 
 .row1-col2-nav-bar {
 	width: 70%;
-	float: left;
+	display: inline;
 	font-size: 1em;
+
 }
 
 .row1-col2-nav-bar a {
@@ -63,52 +97,88 @@ body {
 	margin: 25px 50px 15px auto;
 }
 
-a.button-bg, .contact-container{
+.hr-line {
+	width: 40px;
+	border-color: #8CECE2;
+	margin-bottom: 80px;
+}
+a.button-bg, .contact-container, .submit-button {
 	background-color: #46D3C6;
 	color: white; 
 	padding: 15px; 
 }
-.contact-container {
-	text-align: center;
+
+
+a.contact-number {
+	color: white;
+	font-weight: bold;
 }
-.button-bg {
+div.contact-container {
+	text-align: center;
+	margin-bottom: 25px;
+}
+div.button-bg {
 	background-color: #46D3C6;
 	font-weight: bold;
 	color: white; 
 	padding: 15px; 
 }
 
-div.custom-font {
-	font-family: 'Noto Sans', sans-serif;
-}
-
 div.row2 {
 	text-align: center;
-	margin-top: 20px;
+	margin: 60px 0px 40px 0px;
 }
 
 div.row3-col1 {
 	width: 40%;
 	float: left;
+	margin-right: 50px;
 }
 
 div.row3-col1 p {
 	line-height: 2;
+	text-align: justify;
 }
 
 div.row3-col2 {
+	width: 50%;
 	float: left;
 }
 
-form .mandatory {
-	
+div.row3-col2 .contact-container {
+	width: 100%;
+}
+.form-col1, .form-col2 {
+	width: 50%;
+	float: left;
+}
+
+form input, form select, form textarea {
+	margin: 20px 10px 30px 0px;
+	padding: 15px;
+	display: block;
+}
+
+textarea {
+	resize: none;
+	display: block;
 }
 
 
+.inline-el {
+	float: left;
+}
+footer li {
+	list-style: none;
+}
 
+/* .-button, .reset-button {
+	float: left;
+} 
 
-
-
+.submit-button {
+	margin-right: 100px;
+} */
 
 /* margin: 0 auto; */
 
