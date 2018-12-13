@@ -1,7 +1,5 @@
 * {
 	box-sizing: border-box;
-	border-radius: 5px;
-	border-color: lightgrey;
 }
 
 .clearfix::after {
@@ -13,7 +11,6 @@
 body {
 	font-size: 100%;
 	/* sans-serif has better readability on computer */
-	/* font-family: Arial, Helvetica, sans-serif; */
 	font-family: 'Noto Sans', sans-serif;
 	font-style: normal;
 	width: 80%;
@@ -29,21 +26,7 @@ a {
 	color: black;
 }
 
-.footer-container {
-	margin-top: 50px;
-	margin-bottom: 100px;
-}
 
-.footer-container .logo-img {
-	width: 110px;
-	margin-right: 100px;
-}
-.footer-nav-bar {
-	display: inline;
-}
-.footer-nav-bar a {
-	margin-right: 50px;
-}
 
 
 .inline-el {
@@ -75,32 +58,30 @@ a {
 }
 .row1-col1-logo {
 	float: left;
-	margin-right: 100px;
+	margin-right: 15%;
+	margin-top: 1.56%;
 }
 .logo-img {
 	width: 110px;
 	height: auto;
-	margin: 25px auto 0px 0px;
-
 }
 
 .row1-col2-nav-bar {
-	width: 70%;
+	
 	display: inline;
-	font-size: 1em;
-
+	font-size: 0.8em;
 }
 
 .row1-col2-nav-bar a {
 	color: black;
 	display: inline-block;
-	margin: 25px 50px 15px auto;
+	margin: 1.56% 8% 0.94% auto;
 }
 
 .hr-line {
 	width: 40px;
 	border-color: #8CECE2;
-	margin-bottom: 80px;
+	margin-bottom: 5%;
 }
 a.button-bg, .contact-container, .submit-button {
 	background-color: #46D3C6;
@@ -115,7 +96,7 @@ a.contact-number {
 }
 div.contact-container {
 	text-align: center;
-	margin-bottom: 25px;
+	margin-bottom: 1.56%;
 }
 div.button-bg {
 	background-color: #46D3C6;
@@ -126,13 +107,13 @@ div.button-bg {
 
 div.row2 {
 	text-align: center;
-	margin: 60px 0px 40px 0px;
+	margin: 3.75% 0% 2.5% 0%;
 }
 
 div.row3-col1 {
 	width: 40%;
 	float: left;
-	margin-right: 50px;
+	margin-right: 3.13%;
 }
 
 div.row3-col1 p {
@@ -154,7 +135,7 @@ div.row3-col2 .contact-container {
 }
 
 form input, form select, form textarea {
-	margin: 20px 10px 30px 0px;
+	margin: 1.25% 0.63% 1.88% 0%;
 	padding: 15px;
 	display: block;
 }
@@ -171,6 +152,44 @@ textarea {
 footer li {
 	list-style: none;
 }
+
+
+.row3-col2 .contact-container, input, select, textarea, .button-bg {
+	border-radius: 5px;
+	border-color: lightgrey;
+}
+
+.footer-container {
+	line-height: 10;
+}
+
+.footer-container .logo-img {
+	width: 110px;
+	margin-right: 20%;
+}
+.footer-nav-bar {
+	display: inline;
+	font-size: 0.75em;
+}
+.footer-nav-bar a {
+	margin-right: 3.13%;
+}
+
+.form-entries-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 0.8em;
+
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
 
 /* .-button, .reset-button {
 	float: left;
