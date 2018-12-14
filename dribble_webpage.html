@@ -7,7 +7,7 @@
 	</title>
 	<link rel="stylesheet" href="dribble_styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	
 </head>
 <body>
 	<div class="top-container">
@@ -50,31 +50,31 @@
 					</div>
 				</div>
 
-				<form class="clearfix">
+				<form class="clearfix" action="#">
 					<div class="form-col1">
 						First Name:<span class="dark-aqua-color">*</span>
-						<input name="firstname" type="text" placeholder="First Name">
+						<input id="fname" type="text" placeholder="First Name">
 					</div>
 					<div class="form-col2">
 						Last Name:<span class="dark-aqua-color">*</span>
-						<input name="lastname" type="text" placeholder="Last Name">
+						<input id="lname" type="text" placeholder="Last Name">
 					</div>
 					<div>
 						Email Address:<span class="dark-aqua-color">*</span>
-						<input type="email" name="emailaddr" placeholder="email@domain.com">
+						<input type="email" id="emailaddr" placeholder="email@domain.com">
 					</div>
 					<div class="form-col1">
 						Password:<span class="dark-aqua-color">*</span>
-						<input type="password" name="psw" placeholder="Password">
+						<input type="password" id="pwd" placeholder="Password">
 					</div>
 					<div class="form-col2">
 						Confirm Password:<span class="dark-aqua-color">*</span>
-						<input type="password" name="confirmpsw" placeholder="Confirm Password">
+						<input type="password" id="confirmpwd" placeholder="Confirm Password">
 					</div>
 
 					<div class="form-col1">
 						State:<span class="dark-aqua-color">*</span>
-						<select name="states">
+						<select id="states">
 							<option value="default">Select State</option>
 							<option value="mh">Maharashtra</option>
 							<option value="gj">Gujarat</option>
@@ -84,16 +84,16 @@
 
 					<div class="form-col2">
 						Date of Birth:<span class="dark-aqua-color">*</span> (dd-mm-yyyy)
-						<input type="date" name="dob">
+						<input type="date" id="dob">
 					</div>		
 
-					<div class="address-field">
+					<div id="addr-container">
 						Address:<span class="dark-aqua-color">*</span>
-						<textarea name="message" rows="3" cols="72" placeholder="Please enter your address here"></textarea>
+						<textarea id="addr" rows="3" cols="72" placeholder="Please enter your address here"></textarea>
 					</div>
 
 					<div class="buttons-container">
-						<input type="submit" value="REQUEST DEMO" class="button-bg submit-button">	
+					<input type="submit" id="submit_button" value="REQUEST DEMO" class="button-bg submit-button">	
 						<!-- <input type="reset" value="Reset" class="reset-button"> -->					
 					</div>
 				</form>
@@ -123,8 +123,8 @@
 			<a href="#">Terms of Service</a> 
 			<a href="#">Privacy Policy</a> 
 		</nav>&copy;2018 Indio Technologies, Inc (415)200-1404
-		
 	</footer>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="dribble_script.js"></script>
 </body>
 </html>
-<script type="text/javascript" src="dribble_script.js"></script>
