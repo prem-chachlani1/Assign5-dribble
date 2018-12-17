@@ -1,26 +1,5 @@
 {
   "person": [
-    {
-      "fname": "John",
-      "lname": "",
-      "emailaddr": "",
-      "pwd": "",
-      "confirmpwd": "",
-      "states": "default",
-      "dob": "",
-      "addr": "",
-      "id": 1
-    },
-    {
-      "fname": "John",
-      "lname": "Doe",
-      "emailaddr": "john.deo@gmail.com",
-      "pwd": "123456",
-      "confirmpwd": "123456",
-      "states": "mh",
-      "dob": "2018-12-13",
-      "addr": "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA",
-      "id": 2
-    }
+    
   ]
 }

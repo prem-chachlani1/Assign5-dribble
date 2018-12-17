@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="images/football_icon.jpg" type="image/jpg">
 	<title>
-		Indio Demo Request
+		Dribble
 	</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 	<link rel="stylesheet" href="dribble_styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	
+
 </head>
 <body>
 	<div class="top-container">
 		<div class="row1 clearfix">
 			<div class="row1-col1-logo">
 				<img src="images/logo.svg" class="logo-img">
-			</div>
-			<div class="row1-col2-nav-bar">
+			</div>			
+			<nav class="nav-bar">
 				<ul>
 					<li> <a href="#">HOME</a> </li>
 					<li> <a href="#">HOW IT WORKS</a> </li>
@@ -23,7 +30,7 @@
 					<li> <a href="#">BLOG</a> </li>
 					<li> <a href="#" class="button-bg">GET STARTED</a> </li>	
 				</ul>
-			</div>
+			</nav>			
 		</div>
 
 		<div class="row2 custom-font">
@@ -43,28 +50,27 @@
 				</p>
 			</div>
 			<div class="row3-col2">
-				<div class="contact-container">
+				<div class="contact-container">				
 					Sign up below to request a demo or call us at
-					<div>
-						<a href="#" class="contact-number">(415)200-1404</a>
-					</div>
+					<a href="#" class="contact-number">(415)200-1404</a>
+					
 				</div>
 
-				<form class="clearfix" action="#">
+				<form class="clearfix" action="#" method="post" autocomplete="on">
 					<div class="form-col1">
-						First Name:<span class="dark-aqua-color">*</span>
+						<label>First Name: </label> <span class="dark-aqua-color">*</span>
 						<input id="fname" type="text" placeholder="First Name">
 					</div>
 					<div class="form-col2">
-						Last Name:<span class="dark-aqua-color">*</span>
+						<label>Last Name: </label> <span class="dark-aqua-color">*</span>
 						<input id="lname" type="text" placeholder="Last Name">
 					</div>
 					<div>
-						Email Address:<span class="dark-aqua-color">*</span>
+						<label>Email Address: </label> <span class="dark-aqua-color">*</span>
 						<input type="email" id="emailaddr" placeholder="email@domain.com">
 					</div>
 					<div class="form-col1">
-						Password:<span class="dark-aqua-color">*</span>
+						<label>Password: </label> <span class="dark-aqua-color">*</span>
 						<input type="password" id="pwd" placeholder="Password">
 					</div>
 					<div class="form-col2">
@@ -73,8 +79,8 @@
 					</div>
 
 					<div class="form-col1">
-						State:<span class="dark-aqua-color">*</span>
-						<select id="states">
+						<label>State: </label> <span class="dark-aqua-color">*</span>
+						<select id="state">
 							<option value="default">Select State</option>
 							<option value="mh">Maharashtra</option>
 							<option value="gj">Gujarat</option>
@@ -83,17 +89,30 @@
 					</div>
 
 					<div class="form-col2">
-						Date of Birth:<span class="dark-aqua-color">*</span> (dd-mm-yyyy)
-						<input type="date" id="dob">
+						<label>Date of Birth: </label> <span class="dark-aqua-color">*</span> (mm/dd/yyyy)
+						<input type="text" id="dob">
 					</div>		
 
 					<div id="addr-container">
-						Address:<span class="dark-aqua-color">*</span>
+						<label>Address: </label><span class="dark-aqua-color">*</span>
 						<textarea id="addr" rows="3" cols="72" placeholder="Please enter your address here"></textarea>
 					</div>
 
+					<div class="single-option">
+						<label class="block-content">Select Gender:  <span class="dark-aqua-color">*</span> </label>
+						<input type="radio" name="gender" value="male" class="inline-el"> Male 
+						<input type="radio" name="gender" value="female" class="inline-el"> Female
+						<input type="radio" name="gender" value="other" class="inline-el"> Other					
+					</div>
+
+					<div class="multiple-options">
+						<label class="block-content">What do you own?</label>						
+						<input type="checkbox" name="vehicle" value="Bike" class="inline-el"> I have a bike 
+						<input type="checkbox" name="vehicle" value="Car" class="inline-el"> I have a car 					
+					</div>
+
 					<div class="buttons-container">
-					<input type="submit" id="submit_button" value="REQUEST DEMO" class="button-bg submit-button">	
+						<input type="submit" id="request-button" value="REQUEST DEMO" class="button-bg">	
 						<!-- <input type="reset" value="Reset" class="reset-button"> -->					
 					</div>
 				</form>
@@ -101,7 +120,7 @@
 		</div>
 
 		<div class="table-container" style="overflow-x:auto;">
-			<table class="form-entries-table">
+			<table id="form-entry-table">
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
@@ -111,20 +130,27 @@
 					<th>State</th>
 					<th>Date Of Birth</th>
 					<th>Address</th>
+					<th>Gender</th>
+					<th>Vehicles owned</th>
 				</tr>
+
 			</table>
 		</div>
 
 	</div>
 
 	<footer class="footer-container">
-		<img src="images/logo.svg" class="logo-img">
-		<nav class="footer-nav-bar">
-			<a href="#">Terms of Service</a> 
-			<a href="#">Privacy Policy</a> 
-		</nav>&copy;2018 Indio Technologies, Inc (415)200-1404
+		<div class="footer-content">
+			<img src="images/logo.svg" class="logo-img">
+			<nav class="nav-bar">
+				<ul> 
+					<li> <a href="#">Terms of Service</a> </li>
+					<li><a href="#">Privacy Policy</a> </li>
+				</ul>
+			</nav>&copy;2018 Indio Technologies, Inc (415)200-1404
+		</div>
 	</footer>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="dribble_script.js"></script>
+
+	<script type="text/javascript" src="dribble_script.js"></script>
 </body>
 </html>
