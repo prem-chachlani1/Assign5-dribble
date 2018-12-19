@@ -2,6 +2,7 @@
 <html>
 <head>
 
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="images/football_icon.jpg" type="image/jpg">
 	<title>
@@ -17,22 +18,24 @@
 
 </head>
 <body>
-	<div class="top-container">
-		<div class="row1 clearfix">
-			<div class="row1-col1-logo">
-				<img src="images/logo.svg" class="logo-img">
-			</div>			
-			<nav class="nav-bar">
-				<ul>
-					<li> <a href="#">HOME</a> </li>
-					<li> <a href="#">HOW IT WORKS</a> </li>
-					<li> <a href="#">ABOUT US</a> </li>
-					<li> <a href="#">BLOG</a> </li>
-					<li> <a href="#" class="button-bg">GET STARTED</a> </li>	
-				</ul>
-			</nav>			
-		</div>
-
+	
+	<header class="row1 clearfix">
+		<div class="header-content">
+		<div class="row1-col1-logo">
+			<img src="images/logo.svg" class="logo-img">
+		</div>			
+		<nav class="nav-bar">
+			<ul>
+				<li> <a href="#">HOME</a> </li>
+				<li> <a href="#">HOW IT WORKS</a> </li>
+				<li> <a href="#">ABOUT US</a> </li>
+				<li> <a href="#">BLOG</a> </li>
+				<li> <a href="#" class="button-bg">GET STARTED</a> </li>	
+			</ul>
+		</nav>
+		</div>			
+	</header>
+	<main class="main-container">
 		<div class="row2 custom-font">
 			<h1>Request a Demo of Indio</h1>
 		</div>
@@ -56,35 +59,35 @@
 					
 				</div>
 
-				<form class="clearfix" action="#" method="post" autocomplete="on">
+				<form class="clearfix" action="/" method="post" autocomplete="on">
 					<div class="form-col1">
 						<label>First Name: </label> <span class="dark-aqua-color">*</span>
-						<input id="fname" type="text" placeholder="First Name">
+						<input id="fname" type="text" place.*" onfocusout = "validate()" >
 					</div>
 					<div class="form-col2">
 						<label>Last Name: </label> <span class="dark-aqua-color">*</span>
-						<input id="lname" type="text" placeholder="Last Name">
+						<input id="lname" type="text" place.*" onfocusout = "validate()">
 					</div>
 					<div>
 						<label>Email Address: </label> <span class="dark-aqua-color">*</span>
-						<input type="email" id="emailaddr" placeholder="email@domain.com">
+						<input type="email" id="emailaddr" place.*" onfocusout = "validate()">
 					</div>
 					<div class="form-col1">
 						<label>Password: </label> <span class="dark-aqua-color">*</span>
-						<input type="password" id="pwd" placeholder="Password">
+						<input type="password" id="pwd" place.*" onfocusout = "validate()">
 					</div>
 					<div class="form-col2">
 						Confirm Password:<span class="dark-aqua-color">*</span>
-						<input type="password" id="confirmpwd" placeholder="Confirm Password">
+						<input type="password" id="confirmpwd" place.*" onfocusout = "validate()">
 					</div>
 
 					<div class="form-col1">
 						<label>State: </label> <span class="dark-aqua-color">*</span>
 						<select id="state">
-							<option value="default">Select State</option>
-							<option value="mh">Maharashtra</option>
-							<option value="gj">Gujarat</option>
-							<option value="ap">Andhra Pradesh</option>
+							<option>Select State</option>
+							<option>Maharashtra</option>
+							<option>Gujarat</option>
+							<option>Andhra Pradesh</option>
 						</select>
 					</div>
 
@@ -95,7 +98,7 @@
 
 					<div id="addr-container">
 						<label>Address: </label><span class="dark-aqua-color">*</span>
-						<textarea id="addr" rows="3" cols="72" placeholder="Please enter your address here"></textarea>
+						<textarea id="addr" rows="3" cols="72" place.*" onfocusout = "validate()"></textarea>
 					</div>
 
 					<div class="single-option">
@@ -120,24 +123,10 @@
 		</div>
 
 		<div class="table-container" style="overflow-x:auto;">
-			<!-- <table id="form-entry-table">
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email Address</th>
-					<th>Password</th>
-					<th>Confirm Password</th>
-					<th>State</th>
-					<th>Date Of Birth</th>
-					<th>Address</th>
-					<th>Gender</th>
-					<th>Vehicles owned</th>
-				</tr>
 			
-			</table> -->
 		</div>
 
-	</div>
+	</main>
 
 	<footer class="footer-container">
 		<div class="footer-content">
@@ -151,6 +140,6 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="dribble_script_try.js"></script>
+	<script type="text/javascript" src="dribble_script.js"></script>
 </body>
 </html>
