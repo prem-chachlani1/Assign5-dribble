@@ -1,11 +1,40 @@
+$(document).ready(function(){
+  $.ajax({
+    type: "GET",
+    url: 'http://localhost:3000/person', 
+    success: function(result) {
+      var tableContainer = $(".table-container");
+      console.log("GET result: ", result);
+      
+      var output =
+      "<table><thead><tr><th>First Name</th><th>Last Name</th><th>Email Address</th>"+
+      "<th>State</th><th>Date of Birth</th><th>Address</th>"+
+      "<th>Gender</th><th>Vehicles owned</th> </thead><tbody>";
+      
+      for(var prop in result) {
+        delete result[prop].pwd;
+        delete result[prop].id;
+        output = output + "<tr>"; 
+        for (var key in result[prop]) {
+          if (result[prop].hasOwnProperty(key)) {
+            output = output + "<td>" + result[prop][key] + "</td>";                            
+          }
+        }
+        output = output + "</tr>";
+      }
+      output = output + "</tbody></table>";
+      tableContainer.html(output);
+      $("table").addClass("form-entries");
+    }
+  });
 
 
+//submit button
 $("#request-button").on("click", function(e) { //use bind click
   e.preventDefault();
   console.log("working!!!");
-
   var vehicleArr = [];
-  //see each loop
+
   $.each($("input[name='vehicle']:checked"), function() {            
     vehicleArr.push($(this).val());
   });
@@ -14,45 +43,47 @@ $("#request-button").on("click", function(e) { //use bind click
    fname: $("#fname").val(),
    lname: $("#lname").val(),
    emailaddr: $("#emailaddr").val(),
-   pwd: $("#pwd").val(),
-   confirmpwd: $("#confirmpwd").val(),
-   state: $("#state").val(),
-   dob: $("#dob").val(),		
-   addr: $("#addr").val(),		
+   state: $("#state").children("option:selected").val(),
+   dob: $("#dob").val(),    
+   addr: $("#addr").val(),    
    gender: $("input[name='gender']:checked").val(),
-   vehicles: vehicleArr.join(", ")
+   vehicles: vehicleArr.join(", "),
+   pwd: $("#pwd").val()
  };
  console.log("person obj fname: ", person["fname"]);
  var jsonData = JSON.stringify(person);
 
- console.log(jsonData);
-
+//ajax post
  $.ajax({
   url: 'http://localhost:3000/person',
-  type: 'post',		
-  data: jsonData,
+  type: 'post',   
   dataType: 'json',
-  contentType: 'application/json'
-  	/*success: function(){
-  		console.log("fname ", fname);
-  	}*/
-  });
-
- /*<tr> <td> </td></tr>*/
-var tableRow = $(document.createElement('tr'));
-
-for (var key in person) {
-  if (person.hasOwnProperty(key)) {
-        //console.log(key + " -> " + person[key]);
-        tableCol = $(document.createElement('td'));
-        tableCol.text(person[key]);
-        tableRow.append(tableCol);        
+  contentType: 'application/json',
+  data: jsonData,
+  success: function(result) {
+    console.log("POST result", result);
+    var output = "<tr>";
+    console.log(">> result", result);
+    delete result.pwd;  
+    delete result.id;
+    for (var prop in result) {
+      if (result.hasOwnProperty(prop)) {
+        output = output + "<td>" + result[prop] + "</td>";                            
       }
     }
-$( "#form-entry-table" ).append(tableRow);
+    
+    output = output + "</tr>";
+    $(".form-entries").append(output);
+
+  },
+  error: function(xhr){
+    alert("An error occured while post request: " + xhr.status + " " + xhr.statusText);
+  }
+
 });
 
 
+}); //request button
 
 $( function() {
   $( "#dob" ).datepicker( {
@@ -60,10 +91,14 @@ $( function() {
     minDate: new Date(2017, 12 - 1, 1)     /*params: year, month, day, hour, minute, second, millisecond*/    
   } );
 
-} );
+} ); //date picker
+
+}); //ready()
 
 
 
+
+//commented code
 /*var tableCol = $(document.createElement('td'));
 tableCol.text(person["id"]);
 tableRow.append(tableCol);*/
@@ -75,9 +110,6 @@ $("#mydate").datepicker().datepicker("setDate", new Date());
 set today's date to date picker
   $("#mydate").datepicker().datepicker("setDate", new Date());
   */
-
-
-
 
 // var form_data = makeAjaxCall(URL, "POST");
 // console.log("form_data >> ", form_data);
@@ -110,13 +142,9 @@ $.ajax({
 
 */
 
-//post form data
-/*$(document).ready(function(){
-  $("button").click(function(){
-      alert("Value: " + $("#test").val());
-  });
-});
 
+
+/*
 {
   "employees": [
       {
@@ -147,7 +175,7 @@ function onGeneratedRow()
 
   viewData.
   employees.push(jsonData);
-	console.log("viewData: ", JSON.stringify(viewData));
+  console.log("viewData: ", JSON.stringify(viewData));
 }
 
 onGeneratedRow();*/
