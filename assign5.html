@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/football_icon.jpg" type="image/jpg">
+    <title>
+        Dribble
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="dribble_styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <script type="text/javascript" src="dribble_script_try.js"></script>
+</head>
+
+<body>
+    <header class="row1 clearfix">
+        <div class="header-content">
+            <div class="row1-col1-logo">
+                <img src="images/logo.svg" class="logo-img">
+		</div>
+                <nav class="nav-bar">
+                    <ul>
+                        <li> <a href="#">HOME</a> </li>
+                        <li> <a href="#">HOW IT WORKS</a> </li>
+                        <li> <a href="#">ABOUT US</a> </li>
+                        <li> <a href="#">BLOG</a> </li>
+                        <li> <a href="#" class="button-bg">GET STARTED</a> </li>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+    <main class="main-container">
+        <div class="row2 custom-font">
+            <h1>Request a Demo of Indio</h1>
+        </div>
+        <hr class="hr-line">
+        <div class="row3 clearfix">
+            <div class="row3-col1">
+                <img src="images/laptop.svg">
+                <p class="custom-font"> <span class="dark-aqua-color">Easy to use:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan. Etiam eget varius ex, ac aliquet dolor.
+                </p>
+                <p class="custom-font"> <span class="dark-aqua-color">Simple onboarding:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan.
+                </p>
+                <p class="custom-font"> <span class="dark-aqua-color">Advanced feautures:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="row3-col2">
+                <div class="contact-container">
+                    Sign up below to request a demo or call us at
+                    <a href="#" class="contact-number">(415)200-1404</a>
+                </div>
+                <form id="form-el" class="clearfix" action="/" method="post" autocomplete="on">
+                    <div class="form-col1">
+                        <label>First Name: </label> <span class="dark-aqua-color">*</span>
+                        <input id="fname" type="text" placeholder="First Name" maxlength="20" required>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col2">
+                        <label>Last Name: </label> <span class="dark-aqua-color">*</span>
+                        <input id="lname" type="text" placeholder="Last Name" maxlength="20" required>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col1">
+                        <label>Email Address: </label> <span class="dark-aqua-color">*</span>
+                        <input type="email" id="emailaddr" placeholder="email@domain.com" required>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col2">
+                        <label>Phone no: </label> <span class="dark-aqua-color">*</span>
+                        <input type="number" id="phone-no" maxlength="10" min="1111111111" max="9999999999" required placeholder="Phone number">
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col1">
+                        <label>Password: </label> <span class="dark-aqua-color">*</span>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col2">
+                        Confirm Password:<span class="dark-aqua-color">*</span>
+                        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col1">
+                        <label>State: </label> <span class="dark-aqua-color">*</span>
+                        <select id="state">
+                            <option value="default">Select State</option>
+                            <option value="mh">Maharashtra</option>
+                            <option value="gj">Gujarat</option>
+                            <option value="ap">Andhra Pradesh</option>
+                        </select>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="form-col2">
+                        <label>Date of Birth: </label> <span class="dark-aqua-color">*</span> (mm/dd/yyyy)
+                        <input type="text" id="dob">
+                        <label class="error-msg"></label>
+                    </div>
+                    <div id="addr-container">
+                        <label>Address: </label><span class="dark-aqua-color">*</span>
+                        <textarea id="addr" rows="2" cols="72" placeholder="Please enter your address here" required></textarea>
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="single-option">
+                        <label class="block-content">Select Gender: <span class="dark-aqua-color">*</span> </label>
+                        <input type="radio" name="gender" value="male" class="inline-el"> Male
+                        <input type="radio" name="gender" value="female" class="inline-el"> Female
+                        <input type="radio" name="gender" value="other" class="inline-el"> Other
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="multiple-options">
+                        <label class="block-content">What do you own?</label>
+                        <input type="checkbox" name="vehicle" value="Bike" class="inline-el"> I have a bike
+                        <input type="checkbox" name="vehicle" value="Car" class="inline-el"> I have a car
+                        <label class="error-msg"></label>
+                    </div>
+                    <div class="buttons-container">
+                        <input type="submit" id="request-button" value="REQUEST DEMO" class="button-bg">
+                        <!-- <input type="reset" value="Reset" class="reset-button"> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="table-container" style="overflow-x:auto;">
+        </div>
+    </main>
+    <footer class="footer-container">
+        <div class="footer-content">
+            <img src="images/logo.svg" class="logo-img">
+            <nav class="nav-bar">
+                <ul>
+                    <li> <a href="#">Terms of Service</a> </li>
+                    <li><a href="#">Privacy Policy</a> </li>
+                </ul>
+            </nav>&copy;2018 Indio Technologies, Inc (415)200-1404
+        </div>
+    </footer>
+    
+</body>
+
+</html>

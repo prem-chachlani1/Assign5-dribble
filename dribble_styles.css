@@ -204,7 +204,10 @@ a.contact-number {
 	tr:nth-child(even){
 		background-color: #f2f2f2
 	}
-
+.error-msg {
+	color: red;
+	visibility: visible;
+}
 /* .-button, .reset-button {
 	float: left;
 } 
