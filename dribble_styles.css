@@ -1,19 +1,15 @@
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
 
 body {
@@ -22,8 +18,51 @@ body {
 	font-style: normal;
 }
 
-.top-container {
-	max-width: 80%;
+.header-content,
+.footer-content {
+	width: 70%;
+	/* mobile width: 100% */
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.row1 {
+	margin-top: 20px;
+}  
+.logo-img {
+	width: 110px;
+} 
+.header-content .nav-bar {
+	width: 80%;
+	display: flex;
+	justify-content: space-around;
+
+}
+.footer-content .nav-bar {
+	width: 35%;
+	display: flex;
+	justify-content: space-around;
+
+}
+.nav-bar ul {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.nav-bar ul li {
+	list-style: none;
+	display: inline; 
+}
+.nav-bar li a { 
+	font-size: 0.8em;
+	text-decoration: none;
+	color: black;
+}
+
+.main-container {
+	width: 80%;
 	margin: auto;
 }
 
@@ -31,43 +70,28 @@ a.contact-number {
 	text-decoration: none;
 }
 
-.nav-bar a {
-	text-decoration: none;
-	color: black; 
-}
-.nav-bar ul {
-	display: inline;
-}
-.nav-bar li  {
-	list-style: none;
-	display: inline;
-}
-
-
 .inline-el {
 	display: inline;
 }
+
 .inline-block-el {
 	display: inline-block;
 }
+
 .block-content {
 	display: block;
 }
-/* img {
-	max-width:100%; images can grow till their original size only
-	height:auto;
-} */
 
 .dark-aqua-color {
-	color: #46D3C6; 
+	color: #46D3C6;
 }
 
 .light-aqua-color {
-	color: #8CECE2; 
+	color: #8CECE2;
 }
 
 .sky-blue-color {
-	color: #D0F5F1; 
+	color: #D0F5F1;
 }
 
 
@@ -75,36 +99,18 @@ a.contact-number {
 	font-weight: bold;
 }
 
-.row1 {
-	margin-top: 5%;
-}
-.row1-col1-logo {
-	display: inline;
-	margin-right: 15%;
-}
-.logo-img {
-	max-width: 110px;
-}
-.nav-bar {
-	display: inline;
-}
-.nav-bar li a {
-	list-style: none;
-	display: inline;
-	font-size: 0.8em;
-	margin: 1.56% 6% 0.94% auto;
-}
-
-
 .hr-line {
-	max-width: 40px;
+	width: 40px;
 	border-color: #8CECE2;
-	margin-bottom: 5%;
+	margin-bottom: 80px;
 }
-a.button-bg, .contact-container, #request-button {
+
+.nav-bar li a.button-bg,
+.contact-container,
+#request-button {
 	background-color: #46D3C6;
-	color: white; 
-	padding: 15px; 
+	color: white;
+	padding: 15px;
 }
 
 a.contact-number {
@@ -112,26 +118,30 @@ a.contact-number {
 	font-weight: bold;
 	display: block;
 }
+
 div.contact-container {
 	text-align: center;
-	margin-bottom: 1.56%;
+	margin-bottom: 24px;
 }
+
 div.button-bg {
 	background-color: #46D3C6;
 	font-weight: bold;
-	color: white; 
-	padding: 15px; 
+	color: white;
+	padding: 15px;
 }
 
 div.row2 {
 	text-align: center;
-	margin: 3.75% 0% 2.5% 0%;
+	margin: 60px 0px 40px 0px;
 }
 
+div.row3 {
+	display: flex;
+
+}
 div.row3-col1 {
-	max-width: 40%;
-	float: left;
-	margin-right: 3.13%;
+	width: 40%; 
 }
 
 div.row3-col1 p {
@@ -140,24 +150,23 @@ div.row3-col1 p {
 }
 
 div.row3-col2 {
-	width: 50%;
-	float: left;
+	width: 50%; 
 }
 
-div.row3-col2 .contact-container {
-	width: 100%;
-}
+
 .form-col1, .form-col2 {
 	width: 50%;
 	float: left;
 }
 
 form input, form select, form textarea {
-	margin: 1.25% 0.63% 1.88% 0%;
+	margin: 5px 0px;
 	padding: 15px;
 	display: block;
 }
-
+form label {
+	margin-bottom: 5px;
+}
 textarea {
 	resize: none;
 	display: block;
@@ -170,51 +179,46 @@ textarea {
 
 .footer-container {
 	line-height: 10;
-	max-width: 100%;
-}
-.footer-content {
-	max-width: 80%;
-	margin: auto;
+	width: 100%;
 }
 
 .footer-content .logo-img {
 	margin-right: 12%;
 }
+
 .footer-nav-bar {
 	display: inline;
 	font-size: 0.75em;
 }
+
 .footer-nav-bar a {
 	margin-right: 3.13%;
 }
 
-.form-entries-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 0.8em;
-
+.table-container {
+	margin-top: 20px;
+}
+.form-entries {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #ddd;
+	font-size: 1em;
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
+th,
+td {
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
 
-/* .-button, .reset-button {
-	float: left;
-} 
+.error-msg {
+	color: red;
+	display: block;
+	visibility: hidden;
+}
 
-.submit-button {
-	margin-right: 100px;
-} */
-
-/* margin: 0 auto; */
-
-/* will use
-font-size: some em; some vw means viewport width:
-media query
-*/

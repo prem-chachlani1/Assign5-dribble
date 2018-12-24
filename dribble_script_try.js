@@ -1,178 +1,151 @@
 
-$(document).ready(function(){
-  //obj["person"][0].fname
+$(document).ready(function() {
+  var $regexFname = /^[a-zA-Z]{3,16}$/i;
+  var $regexLname = /^[a-zA-Z]{3,16}$/i; /* for D'souza /^[a-zA-z ,.'-]{3,16}$/i;*/
+  var $regexEmailAddr = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
+  var $regexPhoneNo = /^[0-9]{10}$/;
+    var $regexPassword = /^[a-zA-Z]\w{3,14}$/; //eg: aBc45DSD_sdf   
+    var $regexDOB = /^[0,1]?\d{1}\/(([0-2]?\d{1})|([3][0,1]{1}))\/(([1]{1}[9]{1}[9]{1}\d{1})|([2-9]{1}\d{3}))$/;
+    var $regexAddr = /\S+/;
+    
+    var invalidStr = "Invalid ";
+    var  selectMsg = "Please select ";    //validate text fields
+    function validateTextField(fieldId, msg, minLen, maxLen, regExp) {
+      $(fieldId).focusout(function() {
+        var $this = $(this);
+        var $fieldVal = $this.val();
+        var $fieldLen = $this.val().length;
 
-  $.ajax({
-    type: "GET",
-    url: 'http://localhost:3000/person', 
-    success: function(result) {
-      var tableContainer = $(".table-container");
-      //var jsonToObj = JSON.parse(result);
-      //console.log("person 2 lname : ", jsonToObj["person"][1]["lname"]);
-      console.log("result: ", result);
-      //console.log("jsonToObj: ", jsonToObj);
-      var output =
-      "<table><thead><tr><th>First Name</th><th>Last Name</th><th>Email Address</th>"+
-      "<th>State</th><th>Date of Birth</th><th>Address</th>"+
-      "<th>Gender</th><th>Vehicles</th></thead><tbody>";
-      //var txt2 = $("<p></p>").text("Text.");
-      //keys[3] == "pwd" && keys[4] == "confirmpwd" &&
-      
-      for(var i in result) {
-        //var keys = Object.getOwnPropertyNames(personIndex);
-        output += "<tr>"; 
-        for (var key in result[i]) {
-          if (result[i].hasOwnProperty(key)) {
-            output += "<td>" + result[i][key] + "</td>";                            
+        if ($this === $("#form-id #confirm-password").val()) {  
+          console.log("inside confirm pwd");
+          if ($this.val() === $("#form-id #password").val()) {
+            $this.next('.error-msg').css('visibility', 'hidden');
+                  } 
+                  else {  
+                    $this.next('.error-msg').text(msg).css('visibility', 'visible');
+                    
+                  }
+                } 
+                else {
+                  if (regExp.test($fieldVal) && $fieldLen >= minLen && $fieldLen <= maxLen) {
+               
+              $this.next('.error-msg').css('visibility', 'hidden');
+              
+            } 
+            else {
+              $this.next('.error-msg').text(msg).css('visibility', 'visible');
+              
+            }
           }
-        }
-        output += "</tr>";
-      }
-      /*for(var personIndex in result["person"]) {
-        //var keys = Object.getOwnPropertyNames(personIndex);
-        for (var key in personIndex) {
-          if (personIndex.hasOwnProperty(key)) {
-            output += "<tr><td>" + personIndex[key] + "</td></tr>";                            
+        }); //focusout
+    } //validateTextField func end
+    
+
+    validateTextField("#fname", invalidStr + "First name ", 3, 20, $regexFname);
+    validateTextField("#lname", invalidStr + "Last name ", 3, 20, $regexLname);
+    validateTextField("#emailaddr", invalidStr + "Email Address ", 4, 254, $regexEmailAddr);
+    validateTextField("#phone-no", invalidStr + "Phone number ", "10", "10", $regexPhoneNo);
+    validateTextField("#password", invalidStr + "Password ", 7, 15, $regexPassword);
+    validateTextField("#confirm-password", invalidStr + "Confirm Password ", "7", "15", $regexPassword);
+    validateTextField("#dob", invalidStr + "Date of Birth", 10, 10, $regexDOB);
+    validateTextField("#addr", invalidStr + "Address", 5, 72, $regexAddr);
+
+    $.ajax({
+      type: "GET",
+      url: 'http://localhost:3000/person',
+      success: function(result) {
+        var tableContainer = $(".table-container");
+        console.log("GET result: ", result);
+
+        var output =
+        "<table><thead><tr><th>First Name</th><th>Last Name</th><th>Email Address</th>" +
+        "<th>State</th><th>Date of Birth</th><th>Address</th>" +
+        "<th>Gender</th><th>Vehicles owned</th> </thead><tbody>";
+
+        for (var prop in result) {
+          delete result[prop].password;
+          delete result[prop].id;
+          output = output + "<tr>";
+          for (var key in result[prop]) {
+            if (result[prop].hasOwnProperty(key)) {
+              output = output + "<td>" + result[prop][key] + "</td>";
+            }
           }
-        }
-      }*/
-      output += "</tbody></table>";
-      tableContainer.html(output);
-      $("table").attr("id", "form-entry-table");
-    }
-  }); //ajax get()
-}); //ready()
+                output = output + "</tr>"; // add tr tr
+              }
+              output = output + "</tbody></table>";
+              tableContainer.html(output);
+              $("table").addClass("form-entries");
+        } // success func and add error function
+    }); //ajax get
 
 
-$("#request-button").on("click", function(e) { //use bind click
-  e.preventDefault();
-  console.log("working!!!");
+    //submit button
+    $("#request-button").on("click", function(e) { //use bind click
+      e.preventDefault();
+      console.log("working!!!");
 
-  var vehicleArr = [];
-  //see each loop
-  $.each($("input[name='vehicle']:checked"), function() {            
-    vehicleArr.push($(this).val());
-  });
-
-  var person = {
-   fname: $("#fname").val(),
-   lname: $("#lname").val(),
-   emailaddr: $("#emailaddr").val(),
-   pwd: $("#pwd").val(),
-   confirmpwd: $("#confirmpwd").val(),
-   state: $("#state").val(),
-   dob: $("#dob").val(),		
-   addr: $("#addr").val(),		
-   gender: $("input[name='gender']:checked").val(),
-   vehicles: vehicleArr.join(", ")
- };
- console.log("person obj fname: ", person["fname"]);
- var jsonData = JSON.stringify(person);
-
- console.log(jsonData);
-
- $.ajax({
-  url: 'http://localhost:3000/person',
-  type: 'post',		
-  data: jsonData,
-  dataType: 'json',
-  contentType: 'application/json'
-  	/*success: function(){
-  		console.log("fname ", fname);
-  	}*/
-  });
-});
-
-$( function() {
-  $( "#dob" ).datepicker( {
-    maxDate: '0',  /*setting today's date as max date*/
-    minDate: new Date(2017, 12 - 1, 1)     /*params: year, month, day, hour, minute, second, millisecond*/    
-  } );
-
-} ); //date picker
-
-
-
-/*var tableCol = $(document.createElement('td'));
-tableCol.text(person["id"]);
-tableRow.append(tableCol);*/
-
-
-/*datepicker:
-$( "#datepicker" ).datepicker( {minDate: '0'} );
-$("#mydate").datepicker().datepicker("setDate", new Date());
-set today's date to date picker
-  $("#mydate").datepicker().datepicker("setDate", new Date());
-  */
-
-
-
-
-// var form_data = makeAjaxCall(URL, "POST");
-// console.log("form_data >> ", form_data);
-
-/*.then(function(respJson){
-console.log(" request", respJson);
-document.getElementById("userid").innerHTML = respJson.login;
-document.getElementById("name").innerHTML = respJson.name;
-document.getElementById("company").innerHTML = respJson.company;
-document.getElementById("blog").innerHTML = respJson.blog;
-document.getElementById("location").innerHTML = respJson.location;
-}, function(reason){
-console.log("error in processing your request", reason);
-});*/
-
-/*$(document).ready(function(){
-console.log("Hello, jQuery!!!");
-$.ajax({
-  url: "form_data.json",
-  method: "GET",
-  
-  success: function(data) {
-    console.log('success', data) 
-  },
-  error: function(xhr) {
-    console.log('error', xhr);
-  }
-});
-});
-
-*/
-
-
-
-/*
-{
-  "employees": [
-      {
-          "firstName": "John",
-          "lastName": "Doe"
-      },
-      {
-          "firstName": "Anna",
-          "lastName": "Smith"
-      },
-      {
-          "firstName": "Peter",
-          "lastName": "Jones"
+      var isGenderChecked = $('#form-id input[name=gender]:checked');
+       if (isGenderChecked.length > 0) {          
+          $('#form-id .single-option .error-msg').css('visibility', 'hidden');
       }
-  ]
-}*/
-/*var viewData = { 
-  employees : [] 
-};
+      else {          
+        $('#form-id .single-option .error-msg').css('visibility', 'visible');
+      }
 
+      var vehicleArr = [];
 
-function onGeneratedRow()
-{
-  var jsonData = {};
-  
-      var columnName = "First Name"; //column.metadata.colName;
-      jsonData[columnName] = "abcd";
+      $.each($("input[name='vehicle']:checked"), function() {
+        vehicleArr.push($(this).val());
+      });
 
-  viewData.
-  employees.push(jsonData);
-	console.log("viewData: ", JSON.stringify(viewData));
-}
+      var person = {
+        fname: $("#fname").val(),
+        lname: $("#lname").val(),
+        emailaddr: $("#emailaddr").val(),
+        state: $("#state").children("option:selected").val(),
+        dob: $("#dob").val(),
+        addr: $("#addr").val(),
+        gender: $("input[name='gender']:checked").val(),
+        vehicles: vehicleArr.join(", "),
+        password: $("#password").val()
+      };
+      console.log("person obj fname: ", person["fname"]);
+      var jsonData = JSON.stringify(person);
 
-onGeneratedRow();*/
+        //ajax post
+        $.ajax({
+          url: 'http://localhost:3000/person',
+          type: 'post',
+          dataType: 'json',
+          contentType: 'application/json',
+          data: jsonData,
+          success: function(result) {
+            console.log("POST result", result);
+            var output = "<tr>";
+            console.log(">> result", result);
+            delete result.password;
+            delete result.id;
+            for (var prop in result) {
+              if (result.hasOwnProperty(prop)) {
+                output = output + "<td>" + result[prop] + "</td>";
+              }
+            }
+            output = output + "</tr>";
+            $(".form-entries").append(output);
+
+          },
+          error: function(xhr) {
+            alert("An error occured while post request: " + xhr.status + " " + xhr.statusText);
+          }
+        }); //ajax post
+
+    }); //request button
+
+    $("#dob").datepicker({
+      maxDate: '0',
+      /*setting today's date as max date*/
+      minDate: new Date(2017, 12 - 1, 1) /*params: year, month, day, hour, minute, second, millisecond*/
+    });
+
+  });
