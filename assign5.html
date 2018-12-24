@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="dribble_styles.css">
+    <link rel="stylesheet" href="backup_dribble_styles.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <script type="text/javascript" src="dribble_script_try.js"></script>
 </head>
@@ -18,22 +18,22 @@
 <body>
     <header class="row1 clearfix">
         <div class="header-content">
-            <div class="row1-col1-logo">
+            <div class="">
                 <img src="images/logo.svg" class="logo-img">
-		</div>
-                <nav class="nav-bar">
-                    <ul>
-                        <li> <a href="#">HOME</a> </li>
-                        <li> <a href="#">HOW IT WORKS</a> </li>
-                        <li> <a href="#">ABOUT US</a> </li>
-                        <li> <a href="#">BLOG</a> </li>
-                        <li> <a href="#" class="button-bg">GET STARTED</a> </li>
-                    </ul>
-                </nav>
             </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li> <a href="#">HOME</a> </li>
+                    <li> <a href="#">HOW IT WORKS</a> </li>
+                    <li> <a href="#">ABOUT US</a> </li>
+                    <li> <a href="#">BLOG</a> </li>
+                    <li> <a href="#" class="button-bg">GET STARTED</a> </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main class="main-container">
-        <div class="row2 custom-font">
+        <div class="row2">
             <h1>Request a Demo of Indio</h1>
         </div>
         <hr class="hr-line">
@@ -52,69 +52,70 @@
                     Sign up below to request a demo or call us at
                     <a href="#" class="contact-number">(415)200-1404</a>
                 </div>
-                <form id="form-el" class="clearfix" action="/" method="post" autocomplete="on">
+                <form id="form-id" class="clearfix" action="#" method="post" autocomplete="on">
                     <div class="form-col1">
                         <label>First Name: </label> <span class="dark-aqua-color">*</span>
-                        <input id="fname" type="text" placeholder="First Name" maxlength="20" required>
-                        <label class="error-msg"></label>
+                        <input id="fname" type="text" placeholder="First Name" maxlength="20" required value="">
+                        <label class="error-msg">Invalid First Name</label>
                     </div>
                     <div class="form-col2">
                         <label>Last Name: </label> <span class="dark-aqua-color">*</span>
-                        <input id="lname" type="text" placeholder="Last Name" maxlength="20" required>
-                        <label class="error-msg"></label>
+                        <input id="lname" type="text" placeholder="Last Name" maxlength="20" value="" required>
+                        <label class="error-msg">Invalid Last Name</label>
                     </div>
                     <div class="form-col1">
                         <label>Email Address: </label> <span class="dark-aqua-color">*</span>
-                        <input type="email" id="emailaddr" placeholder="email@domain.com" required>
-                        <label class="error-msg"></label>
+                        <input type="email" id="emailaddr" placeholder="email@domain.com" value="" required>
+                        <label class="error-msg">Invalid Email Address</label>
                     </div>
                     <div class="form-col2">
                         <label>Phone no: </label> <span class="dark-aqua-color">*</span>
-                        <input type="number" id="phone-no" maxlength="10" min="1111111111" max="9999999999" required placeholder="Phone number">
-                        <label class="error-msg"></label>
+                        <input type="number" id="phone-no" min="1111111111" max="9999999999" placeholder="Phone number" maxlength="10" required="" oninvalid="this.setCustomValidity('Phone number must be of 10 digits')" oninput="setCustomValidity('')" value="">
+                        <label class="error-msg">Invalid Phone number</label>
                     </div>
                     <div class="form-col1">
                         <label>Password: </label> <span class="dark-aqua-color">*</span>
-                        <input type="password" id="password" placeholder="Password" required>
-                        <label class="error-msg"></label>
+                        <input type="password" id="password" placeholder="Password" value="" required>
+                        <label class="error-msg">Invalid Password</label>
                     </div>
                     <div class="form-col2">
                         Confirm Password:<span class="dark-aqua-color">*</span>
-                        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-                        <label class="error-msg"></label>
+                        <input type="password" id="confirm-password" placeholder="Confirm Password" value="" required>
+                        <label class="error-msg">Invalid Confirm Password</label>
                     </div>
                     <div class="form-col1">
-                        <label>State: </label> <span class="dark-aqua-color">*</span>
+                        <label>State: </label> 
                         <select id="state">
-                            <option value="default">Select State</option>
+                            <option value="default">-- Select State --</option>
                             <option value="mh">Maharashtra</option>
                             <option value="gj">Gujarat</option>
                             <option value="ap">Andhra Pradesh</option>
                         </select>
-                        <label class="error-msg"></label>
+                        <label class="error-msg">Please select an option</label>
                     </div>
                     <div class="form-col2">
                         <label>Date of Birth: </label> <span class="dark-aqua-color">*</span> (mm/dd/yyyy)
-                        <input type="text" id="dob">
-                        <label class="error-msg"></label>
+                        <input type="text" id="dob" value="">
+                        <label class="error-msg">Invalid Date of Birth</label>
                     </div>
                     <div id="addr-container">
-                        <label>Address: </label><span class="dark-aqua-color">*</span>
-                        <textarea id="addr" rows="2" cols="72" placeholder="Please enter your address here" required></textarea>
-                        <label class="error-msg"></label>
+                        <label>Address: </label>
+                        <textarea id="addr" rows="2" cols="72" placeholder="Please enter your address here" required="Please enter address"></textarea>
+                        <label class="error-msg">Invalid Address</label>
                     </div>
                     <div class="single-option">
                         <label class="block-content">Select Gender: <span class="dark-aqua-color">*</span> </label>
-                        <input type="radio" name="gender" value="male" class="inline-el"> Male
-                        <input type="radio" name="gender" value="female" class="inline-el"> Female
-                        <input type="radio" name="gender" value="other" class="inline-el"> Other
-                        <label class="error-msg"></label>
+                        <input type="radio" name="gender" value="male" id="male" class="inline-el" required=""> Male
+                        <input type="radio" name="gender" value="female" id="female" class="inline-el"> Female
+                        <input type="radio" name="gender" value="other" id="other" class="inline-el"> Other
+                        <label class="error-msg">Please check an option</label>
                     </div>
                     <div class="multiple-options">
-                        <label class="block-content">What do you own?</label>
+                        <label class="block-content">What vehicle do you own?</label>
                         <input type="checkbox" name="vehicle" value="Bike" class="inline-el"> I have a bike
                         <input type="checkbox" name="vehicle" value="Car" class="inline-el"> I have a car
-                        <label class="error-msg"></label>
+                        <input type="checkbox" name="vehicle" value="none" class="inline-el"> None
+                        <label class="error-msg">Please check at least one option</label>
                     </div>
                     <div class="buttons-container">
                         <input type="submit" id="request-button" value="REQUEST DEMO" class="button-bg">
@@ -137,7 +138,6 @@
             </nav>&copy;2018 Indio Technologies, Inc (415)200-1404
         </div>
     </footer>
-    
 </body>
 
 </html>
