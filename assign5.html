@@ -12,79 +12,85 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="backup_dribble_styles.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <script type="text/javascript" src="dribble_script_try.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="backup_dribble_script.js"></script>
 </head>
 
-<body>
+<body class="row">
     <header class="row1 clearfix">
-        <div class="header-content">
-            <div class="">
-                <img src="images/logo.svg" class="logo-img">
-            </div>
-            <nav class="nav-bar">
+        <div class="header-content col-m">
+
+            <img src="images/logo.svg" class="logo-img">
+            <a href="javascript:void(0);" id="hamburger-button" class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+            <nav id="navLinks" class="nav-bar col-m">
                 <ul>
-                    <li> <a href="#">HOME</a> </li>
-                    <li> <a href="#">HOW IT WORKS</a> </li>
-                    <li> <a href="#">ABOUT US</a> </li>
-                    <li> <a href="#">BLOG</a> </li>
-                    <li> <a href="#" class="button-bg">GET STARTED</a> </li>
+                    <li class="col-m"> <a href="#">HOME</a> </li>
+                    <li class="col-m"> <a href="#">HOW IT WORKS</a> </li>
+                    <li class="col-m"> <a href="#">ABOUT US</a> </li>
+                    <li class="col-m"> <a href="#">BLOG</a> </li>
+                    <li class="col-m"> <a href="#" class="button-bg">GET STARTED</a> </li>
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
     <main class="main-container">
         <div class="row2">
             <h1>Request a Demo of Indio</h1>
         </div>
         <hr class="hr-line">
-        <div class="row3 clearfix">
-            <div class="row3-col1">
+        <div class="row3">
+            <div class="col-5">
                 <img src="images/laptop.svg">
-                <p class="custom-font"> <span class="dark-aqua-color">Easy to use:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan. Etiam eget varius ex, ac aliquet dolor.
+                <p> <span class="dark-aqua-color">Easy to use:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan. Etiam eget varius ex, ac aliquet dolor.
                 </p>
-                <p class="custom-font"> <span class="dark-aqua-color">Simple onboarding:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan.
+                <p> <span class="dark-aqua-color">Simple onboarding:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ipsum eu hendrerit accumsan.
                 </p>
-                <p class="custom-font"> <span class="dark-aqua-color">Advanced feautures:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p> <span class="dark-aqua-color">Advanced feautures:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
             </div>
-            <div class="row3-col2">
-                <div class="contact-container">
+            <div class="col-6" >
+                <div class="contact-container col-m">
                     Sign up below to request a demo or call us at
                     <a href="#" class="contact-number">(415)200-1404</a>
                 </div>
                 <form id="form-id" class="clearfix" action="#" method="post" autocomplete="on">
-                    <div class="form-col1">
-                        <label>First Name: </label> <span class="dark-aqua-color">*</span>
+                    <div class="col-6">
+                        <label>First Name: <span class="dark-aqua-color">*</span> </label>
                         <input id="fname" type="text" placeholder="First Name" maxlength="20" required value="">
                         <label class="error-msg">Invalid First Name</label>
                     </div>
-                    <div class="form-col2">
-                        <label>Last Name: </label> <span class="dark-aqua-color">*</span>
+                    <div class="col-6">
+                        <label>Last Name: <span class="dark-aqua-color">*</span> </label>
                         <input id="lname" type="text" placeholder="Last Name" maxlength="20" value="" required>
                         <label class="error-msg">Invalid Last Name</label>
                     </div>
-                    <div class="form-col1">
-                        <label>Email Address: </label> <span class="dark-aqua-color">*</span>
+                    <div class="col-6">
+                        <label>Email Address: <span class="dark-aqua-color">*</span> </label> 
                         <input type="email" id="emailaddr" placeholder="email@domain.com" value="" required>
                         <label class="error-msg">Invalid Email Address</label>
                     </div>
-                    <div class="form-col2">
-                        <label>Phone no: </label> <span class="dark-aqua-color">*</span>
+                    <div class="col-6">
+                        <label>Phone no: <span class="dark-aqua-color">*</span></label> 
                         <input type="number" id="phone-no" min="1111111111" max="9999999999" placeholder="Phone number" maxlength="10" required="" oninvalid="this.setCustomValidity('Phone number must be of 10 digits')" oninput="setCustomValidity('')" value="">
                         <label class="error-msg">Invalid Phone number</label>
                     </div>
-                    <div class="form-col1">
-                        <label>Password: </label> <span class="dark-aqua-color">*</span>
+                    <div class="col-6">
+                        <label>Password: <span class="dark-aqua-color">*</span></label> 
                         <input type="password" id="password" placeholder="Password" value="" required>
                         <label class="error-msg">Invalid Password</label>
                     </div>
-                    <div class="form-col2">
-                        Confirm Password:<span class="dark-aqua-color">*</span>
+                    <div class="col-6">
+                        <label>Confirm Password: <span class="dark-aqua-color">*</span></label>
                         <input type="password" id="confirm-password" placeholder="Confirm Password" value="" required>
                         <label class="error-msg">Invalid Confirm Password</label>
                     </div>
-                    <div class="form-col1">
-                        <label>State: </label> 
+                    <div class="select-state col-6">
+                        <label>State: <span class="dark-aqua-color">*</span></label>
                         <select id="state">
                             <option value="default">-- Select State --</option>
                             <option value="mh">Maharashtra</option>
@@ -93,33 +99,33 @@
                         </select>
                         <label class="error-msg">Please select an option</label>
                     </div>
-                    <div class="form-col2">
-                        <label>Date of Birth: </label> <span class="dark-aqua-color">*</span> (mm/dd/yyyy)
+                    <div class="col-6">
+                        <label>Date of Birth: <span class="dark-aqua-color">*</span> (mm/dd/yyyy) </label> 
                         <input type="text" id="dob" value="">
                         <label class="error-msg">Invalid Date of Birth</label>
                     </div>
-                    <div id="addr-container">
+                    <div id="addr-container" class="">
                         <label>Address: </label>
-                        <textarea id="addr" rows="2" cols="72" placeholder="Please enter your address here" required="Please enter address"></textarea>
+                        <textarea id="addr" rows="2" cols="50" placeholder="Please enter your address here" required="Please enter address">1600 Amphitheatre Parkway, Mountain View, CA</textarea>
                         <label class="error-msg">Invalid Address</label>
                     </div>
                     <div class="single-option">
-                        <label class="block-content">Select Gender: <span class="dark-aqua-color">*</span> </label>
-                        <input type="radio" name="gender" value="male" id="male" class="inline-el" required=""> Male
-                        <input type="radio" name="gender" value="female" id="female" class="inline-el"> Female
-                        <input type="radio" name="gender" value="other" id="other" class="inline-el"> Other
+                        <label class="">Select Gender: <span class="dark-aqua-color">*</span> </label>
+                        <input type="radio" name="gender" value="male" id="male"  required=""> Male
+                        <input type="radio" name="gender" value="female" id="female" > Female
+                        <input type="radio" name="gender" value="other" id="other" > Other
                         <label class="error-msg">Please check an option</label>
                     </div>
                     <div class="multiple-options">
-                        <label class="block-content">What vehicle do you own?</label>
-                        <input type="checkbox" name="vehicle" value="Bike" class="inline-el"> I have a bike
-                        <input type="checkbox" name="vehicle" value="Car" class="inline-el"> I have a car
-                        <input type="checkbox" name="vehicle" value="none" class="inline-el"> None
+                        <label class="">What vehicle do you own?</label>
+                        <input type="checkbox" name="vehicle" value="Bike" > I have a bike
+                        <input type="checkbox" name="vehicle" value="Car" > I have a car
+                        <input type="checkbox" name="vehicle" value="none" > None
                         <label class="error-msg">Please check at least one option</label>
                     </div>
-                    <div class="buttons-container">
+                    <div class="buttons-container col-m">
                         <input type="submit" id="request-button" value="REQUEST DEMO" class="button-bg">
-                        <!-- <input type="reset" value="Reset" class="reset-button"> -->
+                        <input type="reset" value="Reset" class="reset-button">
                     </div>
                 </form>
             </div>
@@ -127,15 +133,16 @@
         <div class="table-container" style="overflow-x:auto;">
         </div>
     </main>
-    <footer class="footer-container">
+    <footer class="footer-container col-m">
         <div class="footer-content">
             <img src="images/logo.svg" class="logo-img">
-            <nav class="nav-bar">
+            <nav class="nav-bar col-4">
                 <ul>
                     <li> <a href="#">Terms of Service</a> </li>
                     <li><a href="#">Privacy Policy</a> </li>
                 </ul>
-            </nav>&copy;2018 Indio Technologies, Inc (415)200-1404
+            </nav>
+            <label class="copyright">&copy;2018 Indio Technologies, Inc (415)200-1404</label>
         </div>
     </footer>
 </body>
